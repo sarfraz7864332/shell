@@ -1,8 +1,9 @@
 #!/bin/bash 
 
 #variable
+echo "enter the Url: "
+read a
 tmp=/tmp/webdoc
-url=https://www.tooplate.com/zip-templates/2134_gotto_job.zip
 
 #debugging
 set -x  #debugging 
@@ -19,6 +20,7 @@ echo "done"
 echo
 echo "downloading artifact"
 echo
+rm -rf $tmp/*
 cd $tmp
 wget $url
 unzip *.zip
@@ -27,11 +29,14 @@ echo "removing previus html file"
 echo
 echo "loading atrifact in httpd service"
 echo
-cp -r $tmp/2134_gotto_job/* /var/www/html/
+filename=$(ls $tmp| grep -v *.zip)
+echo $filename
+cp -r $tmp/$filename/* /var/www/html/
 echo "done"
 systemctl restart httpd 
 echo 
 echo "####################################################"
 ifconfig | grep inet | sed -n '2p'
 echo "#####################################################"
+
 
