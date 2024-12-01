@@ -19,18 +19,13 @@ echo "done"
 echo
 echo "downloading artifact"
 echo
-wget $url  -p $tmp
-
+cd $tmp
+wget $url
+unzip *.zip
 echo
 echo "removing previus html file"
 echo
 rm /var/www/html/*
-echo "done"
-echo " unziping artifact"
-echo
-unzip $tmp/*.zip
-echo "done"
-echo
 echo "loading atrifact in httpd service"
 echo
 cp -r $tmp/2134_gotto_job/* /var/www/html/
