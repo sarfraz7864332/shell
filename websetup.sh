@@ -4,6 +4,7 @@
 echo "enter the Url: "
 read a
 tmp=/tmp/webdoc
+url=$a
 
 #debugging
 set -x  #debugging 
