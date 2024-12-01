@@ -25,7 +25,6 @@ unzip *.zip
 echo
 echo "removing previus html file"
 echo
-rm /var/www/html/*
 echo "loading atrifact in httpd service"
 echo
 cp -r $tmp/2134_gotto_job/* /var/www/html/
