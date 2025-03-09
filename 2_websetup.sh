@@ -44,3 +44,6 @@ echo
 
 sudo systemctl status httpd
 ls /var/www/html/
+
+echo "access the url in "
+hostname -i | awk ' {print$2}'
